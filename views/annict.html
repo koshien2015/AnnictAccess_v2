@@ -1,0 +1,20 @@
+<h1>${username}さんのアニメ未消化状況</h1>
+<highchart id="chart1" config="chartConfig"></highchart>
+<table border=1>
+<tr>
+<th>放送日時</th>
+<th>作品名</th>
+</tr>
+
+<tr  ng-repeat="programs in items.programs">
+	<td>{{programs.started_at|date:'MM/dd HH:mm'}}～
+	<br>
+	<div ng-if="programs.dayDiff>0">({{programs.dayDiff}}日遅れ)</div>
+	<div ng-if="programs.dayDiff<0">({{programs.dayDiff * -1}}日後)</div>
+	</td>
+	<td><a href="https://annict.com/works/{{programs.work.id}}" target=_blank>{{programs.work.title}}</a>
+	<br><a href="https://annict.com/works/{{programs.work.id}}/episodes/{{programs.episode.id}}" target=_blank>#{{programs.episode.number}} {{programs.episode.title}}</a></td>
+</tr>
+
+
+</table>
