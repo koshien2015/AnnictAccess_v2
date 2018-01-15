@@ -103,7 +103,7 @@ angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcha
 	})
 	.error(function(data, status, headers, config,chart){
 		if(status==401){
-			alert('認証失敗');
+			alert('認証失敗。再度お試しいただくと接続できる場合があります。');
 		}else if(status==404){
 			alert('通信エラー');
 		}
