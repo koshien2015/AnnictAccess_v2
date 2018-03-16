@@ -1,6 +1,6 @@
 //var app = angular.module('myApp', []);
 'use strict';
-angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcharts-ng'])
+angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcharts-ng','onsen'])
 .config(["$locationProvider", function ($locationProvider) {
 }])
 // Routes
@@ -26,6 +26,8 @@ angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcha
   $urlRouterProvider.when('', '/')
 })
 .controller('authCtrl', function($scope, $stateParams,$http,$rootScope,$location) {
+	var host = $location.host();
+	var port = $location.port();
 	$scope.chartConfig = {
 		options: {
 			chart: {
@@ -101,7 +103,7 @@ angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcha
 	})
 	.error(function(data, status, headers, config,chart){
 		if(status==401){
-			alert('認証をやり直してください');
+			alert('認証失敗。再度お試しいただくと接続できる場合があります。');
 		}else if(status==404){
 			alert('通信エラー');
 		}
