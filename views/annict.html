@@ -7,7 +7,7 @@
     <ons-list-header></ons-list-header>
     <ons-list-item  ng-repeat="programs in items.programs">
       <div class="left">
-        <img class="list-item__thumbnail" ng-src={{programs.work.images.twitter.mini_avatar_url}}>
+        <ons-icon icon="fa-film" class="list-item__icon"></ons-icon>
       </div>
       <div class="center">
         {{programs.started_at|date:'MM/dd HH:mm'}}～
