@@ -1,6 +1,6 @@
 //var app = angular.module('myApp', []);
 'use strict';
-angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcharts-ng'])
+angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcharts-ng','onsen'])
 .config(["$locationProvider", function ($locationProvider) {
 }])
 // Routes
