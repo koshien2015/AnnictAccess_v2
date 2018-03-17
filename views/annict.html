@@ -6,19 +6,23 @@
     <ons-list>
     <ons-list-header></ons-list-header>
     <ons-list-item  ng-repeat="programs in items.programs">
-      <div class="left">
+      <div class="left" ng-if="userAgent=='mobile'">
         <ons-icon icon="fa-film" class="list-item__icon"></ons-icon>
+      </div>
+      <div class="left" ng-if="userAgent!='mobile'">
+        <img class="list-item__thumbnail" ng-src={{programs.work.images.twitter.mini_avatar_url}}>
       </div>
       <div class="center">
         {{programs.started_at|date:'MM/dd HH:mm'}}～
         <div ng-if="programs.dayDiff>0">({{programs.dayDiff}}日遅れ)</div>
         <div ng-if="programs.dayDiff<0">({{programs.dayDiff * -1}}日後)</div>
-        <span class="list-item__title"><a href="https://jp.annict.com/works/{{programs.work.id}}" target=_blank>{{programs.work.title}}</a></span>
         <span class="list-item__subtitle">
+        <a href="https://jp.annict.com/works/{{programs.work.id}}" target=_blank>{{programs.work.title}}</a>
+        </span>
+        <span class="list-item__title">
         <a href="https://jp.annict.com/works/{{programs.work.id}}/episodes/{{programs.episode.id}}" target=_blank>#{{programs.episode.number}} {{programs.episode.title}}</a>
         </span>
       </div>
     </ons-list-item>
 </ons-scroller>
-  <br />
 </ons-page>
