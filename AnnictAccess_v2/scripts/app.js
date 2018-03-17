@@ -1,6 +1,6 @@
 //var app = angular.module('myApp', []);
 'use strict';
-angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcharts-ng','onsen'])
+angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcharts-ng','onsen','ui.bootstrap'])
 .config(["$locationProvider", function ($locationProvider) {
 }])
 // Routes
@@ -100,6 +100,16 @@ angular.module('myApp', ['ui.router','angular-loading-bar', 'ngAnimate','highcha
 			$scope.chartConfig.series[0].data.push(dateArray[key]);
 			$scope.chartConfig.xAxis[0].categories.push(key);
 		}
+		var userAgent = window.navigator.userAgent.toLowerCase();
+		var userAgentType='';
+		if(userAgent.indexOf('iphone')==-1 && userAgent.indexOf('android')==-1){
+			userAgentType='pc';
+		}else{
+			userAgentType='mobile';
+		}
+		console.log(userAgentType);
+		$scope.userAgent=userAgentType;
+
 	})
 	.error(function(data, status, headers, config,chart){
 		if(status==401){
